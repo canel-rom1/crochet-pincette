@@ -3,9 +3,9 @@ Objet 3D pour imprimer une pincette avec un petit crochet.
 
 ## Prévisualisation
 ![Image en 3D](./img/3d.png)
-![Prévisualisation](./img/1.jpg)
-![Exemple 1](./img/ex_1.jpg)
-![Exemple 2](./img/ex_2.jpg)
+![Prévisualisation](./img/1_low.jpg)
+![Exemple 1](./img/ex_1_low.jpg)
+![Exemple 2](./img/ex_2_low.jpg)
 
 
 # Liens
