@@ -27,14 +27,14 @@ module pincette(d, ds){
     }
 }
 
-module cchet(){
+module crochet(){
     //square([tn,ds*d]);
     translate([0,ds*d-tn,0]) square([l+tn,tn]);
     translate([l+tn,ds*d-c,0]) square([tn,c]);
 }
 
 linear_extrude(hauteur) {
-    mirror([1,0,0]) cchet();
+    mirror([1,0,0]) crochet();
     pincette(d,ds);
 }
 
