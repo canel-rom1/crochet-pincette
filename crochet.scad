@@ -1,40 +1,42 @@
-tn=1.5;
-dent=5;
-taille=5;
-large=3;
-cro=10;
+tn=1.5;         // Épaisseur
+d=5;            // Nombre de dents
+ds=5;           // Taille d'une dent
+l=3;            // Largeur du crochet
+c=10;           // Hauteur du crochet
 
-hauteur=8;
+hauteur=8;      // Haureur de la pièce
 
 
 module triangle(x){
-    t=1;
-    square([tn,taille]);
+    square([tn,ds]);
     translate([tn,0,0]) polygon([[0,0], [0,x-tn], [(x/2)-tn,(x/2)-tn]]);
 }
-module dents(nb, x=10)
+module ds(nb, x=10)
     for(i = [0:1:nb-1]){
         translate([0,x*i,0]) triangle(x);
 }
 
-module pincette(dent, taille){
+module pincette(d, ds){
     difference(){
         union(){
-            translate([0,dent*taille-tn,0]) square([taille,tn]);
-            dents(dent,taille);
-            mirror([1,0,0]) translate([-taille,taille/2,0]) dents(dent,taille);
+            translate([0,d*ds-tn,0]) square([ds,tn]);
+            ds(d,ds);
+            mirror([1,0,0]) translate([-ds,ds/2,0]) ds(d,ds);
         }
-        translate([0,dent*taille,0]) square([taille,taille/2]);
+        translate([0,d*ds,0]) square([ds,ds/2]);
     }
 }
 
-module crochet(){
-    //square([tn,taille*dent]);
-    translate([0,taille*dent-tn,0]) square([large+tn,tn]);
-    translate([large+tn,taille*dent-cro,0]) square([tn,cro]);
+module cchet(){
+    //square([tn,ds*d]);
+    translate([0,ds*d-tn,0]) square([l+tn,tn]);
+    translate([l+tn,ds*d-c,0]) square([tn,c]);
 }
 
 linear_extrude(hauteur) {
-    mirror([1,0,0]) crochet();
-    pincette(dent,taille);
+    mirror([1,0,0]) cchet();
+    pincette(d,ds);
 }
+
+
+// vim: ft=openscad tw=100 noet ts=4 sw=4
